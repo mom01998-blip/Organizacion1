@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estructura plana, burocracia profesional y adhocracia</title>
+<meta name="description" content="Aprende de forma sencilla la diferencia entre estructura plana, burocracia profesional y adhocracia.">
+<style>
+:root{--bg:#f5f6fb;--fg:#14213d;--mut:#55607a;--card:#fff;--line:#d8dbe8;--soft:#eceef6;--ink:#14213d;--ok:#dff5e3;--okt:#14532d;--no:#fde2e4;--not:#7f1d1d}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1526;--fg:#eef0f8;--mut:#a9b1c9;--card:#1a2238;--line:#2e3855;--soft:#151c31;--ok:#123524;--okt:#bbf7d0;--no:#3f1620;--not:#fecaca}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Avenir Next","Segoe UI",system-ui,sans-serif;font-size:17px;line-height:1.7}
+.hero{background:var(--ink);color:#fff;padding:36px 16px 40px;border-radius:0 0 28px 28px}
+.in,main{max-width:800px;margin:0 auto}
+h1{font-size:clamp(30px,7vw,46px);line-height:1.12;margin:0 0 10px;font-weight:800;letter-spacing:-.02em}
+.hero p{margin:0 0 22px;color:#c7cde3}
+.hb{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.hb button{min-height:76px;border:0;border-radius:16px;padding:10px 14px;text-align:left;font:inherit;line-height:1.35;color:#14213d;cursor:pointer}
+.hb b{display:block;font-size:18px;font-weight:800}
+.hb span{font-size:15px}
+main{padding:24px 16px 56px}
+h2{font-size:24px;margin:36px 0 10px;font-weight:800}
+h3{font-size:18px;margin:26px 0 10px;font-weight:800}
+.lead{margin:0 0 6px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:2}
+.tab{flex:1;min-width:110px;min-height:52px;border:2px solid var(--line);background:var(--card);color:var(--fg);border-radius:14px;font:inherit;font-size:15px;cursor:pointer;padding:6px 8px}
+.tab[aria-selected="true"]{background:var(--c);border-color:var(--c);color:#14213d;font-weight:800}
+.panel{margin-top:10px;background:var(--card);border:2px solid var(--c);border-radius:22px;padding:20px 18px}
+.kick{display:inline-block;background:var(--c);color:#14213d;border-radius:20px;padding:2px 14px;font-size:15px;font-weight:700;margin:0 0 8px}
+.idea{font-size:clamp(24px,5vw,32px);font-weight:800;line-height:1.2;margin:0 0 10px}
+.panel p{margin:0 0 12px}
+.ana{background:var(--soft);border-radius:16px;padding:12px 16px;margin:0 0 16px;border:2px dashed var(--c)}
+.ana b{display:block;font-size:14px;color:var(--mut)}
+svg{width:100%;height:auto;display:block}
+.st{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:8px}
+.st li{counter-increment:s;display:flex;gap:12px;align-items:center;background:var(--soft);border-radius:14px;padding:10px 12px}
+.st li:before{content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--c);color:#14213d;font-weight:800;display:flex;align-items:center;justify-content:center}
+.story{background:var(--c);color:#14213d;border-radius:16px;padding:14px 16px;margin-top:8px}
+.story b{display:block;font-size:14px}
+.pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:12px}
+.pc div{border-radius:14px;padding:12px 14px;font-size:16px}
+.ok{background:var(--ok);color:var(--okt)}.no{background:var(--no);color:var(--not)}
+.pc b{display:block;font-size:14px}
+.tech{font-size:14px;color:var(--mut);margin:16px 0 0!important}
+.wrap{overflow-x:auto;border:2px solid var(--line);border-radius:18px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px;line-height:1.5}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:#14213d;font-weight:800}
+th:nth-child(2){background:#f5b700}th:nth-child(3){background:#2cc7b3}th:nth-child(4){background:#f0508c}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+.q{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px}
+.q p{margin:0 0 12px;font-size:18px}
+.opts{display:grid;gap:8px}
+.opt{min-height:52px;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--fg);border-radius:14px;font:inherit;padding:8px 14px;cursor:pointer}
+.opt.good{border-color:#22a45d;background:var(--ok);color:var(--okt)}
+.opt.bad{border-color:#d33;background:var(--no);color:var(--not)}
+.fb{margin:12px 0 0;font-size:16px;color:var(--mut);min-height:24px}
+.nx{margin-top:12px;min-height:48px;padding:0 22px;border-radius:14px;border:0;background:var(--ink);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.meta{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:10px}
+footer{text-align:center;color:var(--mut);font-size:14px;margin-top:36px}
+button:focus-visible{outline:3px solid #3b82f6;outline-offset:2px}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="p" viewBox="0 -8 40 64"><circle cx="20" cy="12" r="10" fill="#ffd9b8"/><path d="M3 56v-12a17 17 0 0 1 34 0v12z" fill="currentColor"/></symbol>
+<symbol id="b" viewBox="0 -8 40 64"><circle cx="20" cy="12" r="10" fill="#ffd9b8"/><path d="M11 4 14 -6 20 0 26 -6 29 4z" fill="#ffc400"/><path d="M3 56v-12a17 17 0 0 1 34 0v12z" fill="currentColor"/></symbol>
+<symbol id="g" viewBox="0 -8 40 64"><circle cx="20" cy="12" r="10" fill="#ffd9b8"/><path d="M5 0 20 -6 35 0 20 6z" fill="#14213d"/><path d="M33 1v8" stroke="#ffc400" stroke-width="1.5"/><path d="M3 56v-12a17 17 0 0 1 34 0v12z" fill="currentColor"/></symbol>
+</defs></svg>
+
+<header class="hero"><div class="in">
+<h1>Tres formas de organizar un equipo</h1>
+<p>Aprende la diferencia en pocos minutos. Toca una para empezar.</p>
+<div class="hb" id="hb"></div>
+</div></header>
+
+<main>
+<h2 style="margin-top:0">¿Qué es una estructura?</h2>
+<p class="lead">Es la forma en que una organización reparte el trabajo y las decisiones: quién manda, quién hace qué y cómo se ponen de acuerdo.</p>
+<p class="lead">Hay muchas formas de hacerlo. Aquí verás tres.</p>
+
+<h2>Conoce cada una</h2>
+<div class="tabs" role="tablist" id="tabs"></div>
+<section class="panel" id="panel" aria-live="polite"></section>
+
+<h2>Compáralas</h2>
+<div class="wrap"><table>
+<tr><th></th><th>Plana</th><th>Burocracia profesional</th><th>Adhocracia</th></tr>
+<tr><td>¿Quién decide?</td><td>El jefe</td><td>Cada experto, en su trabajo</td><td>El equipo, hablando</td></tr>
+<tr><td>¿Cómo se ponen de acuerdo?</td><td>El jefe da órdenes</td><td>Ya saben qué hacer por sus estudios</td><td>Conversando y ajustándose</td></tr>
+<tr><td>¿Hay muchas reglas?</td><td>Casi ninguna</td><td>Las del oficio, no las de la empresa</td><td>Casi ninguna</td></tr>
+<tr><td>¿Cuándo sirve?</td><td>Empresa pequeña</td><td>Trabajo difícil que casi no cambia</td><td>Todo cambia y hay que crear</td></tr>
+<tr><td>Ejemplo</td><td>Panadería nueva</td><td>Hospital</td><td>Agencia creativa</td></tr>
+<tr><td>Nombre técnico</td><td>Supervisión directa</td><td>Estandarización de habilidades</td><td>Ajuste mutuo</td></tr>
+</table></div>
+
+<h2>Ponte a prueba</h2>
+<div class="q" id="quiz"></div>
+<footer>Basado en las estructuras organizacionales de Henry Mintzberg.</footer>
+</main>
+
+<script>
+var T={
+s:{n:'Plana',c:'#f5b700',hb:'Manda una sola persona',hs:'Estructura plana',kick:'Manda una sola persona',
+ idea:'Una sola persona decide todo.',
+ def:'Hay un jefe y un grupo pequeño que le hace caso. No hay muchos niveles ni manuales. Si algo cambia, el jefe lo decide y se hace.',
+ ana:'Como un entrenador de barrio que le dice a cada jugador qué hacer.',
+ st:['El jefe decide qué hay que hacer.','Le dice a cada persona qué hacer.','Revisa él mismo que salga bien.'],
+ story:'Una panadería nueva con 5 empleados. La dueña decide los turnos y las recetas. Si quiere cambiar el menú, mañana ya está cambiado.',
+ why:'Sirve cuando la empresa es pequeña y el jefe puede ver todo.',
+ pro:'Es rápida: se decide en el momento.',con:'Si el jefe falla o se va, todo se detiene. Y no funciona cuando la empresa crece.',
+ tech:'supervisión directa'},
+p:{n:'Burocracia profesional',c:'#2cc7b3',hb:'Mandan los expertos',hs:'Burocracia profesional',kick:'Mandan los expertos',
+ idea:'Cada experto decide en su trabajo.',
+ def:'Los trabajadores son profesionales que ya estudiaron su oficio, como médicos o profesores. Como ya saben qué hacer, nadie les dice cómo. La administración solo les ayuda con lo demás.',
+ ana:'Como un cirujano: sabe operar por lo que estudió y nadie le explica cada paso.',
+ st:['La persona estudia y se forma (título, práctica).','Entra a trabajar ya sabiendo su oficio.','Trabaja por su cuenta; el personal de apoyo le facilita lo demás.'],
+ story:'En un hospital, una doctora decide cómo tratar a su paciente por lo que estudió. La gerencia no le dice cómo curar: solo cuida camas, cuentas y horarios.',
+ why:'Sirve cuando el trabajo es difícil pero casi no cambia.',
+ pro:'Trabajo de buena calidad y mucha libertad para los expertos.',con:'Cuesta cambiar cosas o controlar a cada profesional.',
+ tech:'estandarización de habilidades'},
+a:{n:'Adhocracia',c:'#f0508c',hb:'Se arman equipos para crear',hs:'Adhocracia',kick:'Se arman equipos para crear',
+ idea:'Equipos que se juntan para inventar algo nuevo.',
+ def:'Aquí lo importante es crear. Se juntan expertos de distintas áreas para un proyecto, casi sin jefes fijos ni manuales. Se ponen de acuerdo hablando entre ellos.',
+ ana:'Como el equipo de una película: se juntan para esa película y luego cada quien se va a otra.',
+ st:['Llega un reto nuevo que nadie ha resuelto.','Se junta un equipo con expertos de varias áreas.','Hablan seguido y cambian el plan cuando hace falta.'],
+ story:'Una agencia recibe una campaña que nunca hizo. Junta a una diseñadora, un analista y un vendedor. Al terminar, el equipo se separa.',
+ why:'Sirve cuando todo cambia rápido y hay que ser creativo.',
+ pro:'Es muy creativa y se adapta rápido.',con:'Puede haber confusión y discusiones, y cuesta más dinero.',
+ tech:'ajuste mutuo'}};
+function P(id,cx,top,w,col){return '<use href="#'+id+'" x="'+(cx-w/2)+'" y="'+top+'" width="'+w+'" height="'+(w*1.6)+'" style="color:'+col+'"/>';}
+function L(a,b,c,d,dash){return '<line x1="'+a+'" y1="'+b+'" x2="'+c+'" y2="'+d+'" stroke="var(--mut)" stroke-width="2" stroke-linecap="round"'+(dash?' stroke-dasharray="6 6"':'')+'/>';}
+function TX(x,y,t,an){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(an||'middle')+'" font-size="15" fill="var(--fg)" font-weight="600">'+t+'</text>';}
+function trim(p,q,r1,r2){var dx=q[0]-p[0],dy=q[1]-p[1],d=Math.sqrt(dx*dx+dy*dy),ux=dx/d,uy=dy/d;return L(Math.round(p[0]+ux*r1),Math.round(p[1]+uy*r1),Math.round(q[0]-ux*r2),Math.round(q[1]-uy*r2));}
+function scene(k){var s='',i,bg=function(h){return '<rect x="0" y="0" width="680" height="'+h+'" rx="22" fill="var(--c)" fill-opacity=".14"/>';};
+ if(k==='s'){s=bg(272);
+  for(i=0;i<4;i++){var x=110+i*153;s+=L(340,114,x,158)+P('p',x,160,52,'var(--mut)');}
+  s+=P('b',340,12,62,'var(--c)');
+  s+='<rect x="386" y="18" width="124" height="36" rx="18" fill="var(--card)" stroke="var(--c)" stroke-width="2"/><path d="M394 48l-12 12 20-6z" fill="var(--card)" stroke="var(--c)" stroke-width="2"/>'+TX(448,41,'Yo decido')+TX(340,262,'Empleados: siguen las órdenes');
+  return '<svg viewBox="0 0 680 272" role="img" aria-label="Un jefe con corona da órdenes directas a cuatro empleados">'+s+'</svg>';}
+ if(k==='p'){s=bg(292);
+  s+=P('p',340,10,34,'var(--mut)')+TX(366,40,'Administración pequeña','start');
+  for(i=0;i<4;i++){var x=110+i*153;s+=L(340,66,x,86,1)+P('g',x,88,66,'var(--c)')+TX(x,212,'Experto');}
+  s+='<rect x="40" y="232" width="600" height="42" rx="14" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/>'+TX(340,258,'Personal de apoyo');
+  return '<svg viewBox="0 0 680 292" role="img" aria-label="Cuatro expertos con birrete trabajan por su cuenta; arriba una administración pequeña y abajo personal de apoyo">'+s+'</svg>';}
+ s=bg(292)+'<rect x="16" y="10" width="648" height="272" rx="26" fill="none" stroke="var(--c)" stroke-width="2.5" stroke-dasharray="8 8"/>';
+ var n=[[110,122],[230,66],[450,66],[570,122],[340,228]],cols=['var(--c)','#f5b700','#2cc7b3','#7b61ff','var(--c)'],B=[340,124];
+ for(i=0;i<5;i++){s+=trim(n[i],B,42,40);s+=trim(n[i],n[(i+1)%5],44,44).replace('stroke-width="2"','stroke-width="1.5" stroke-dasharray="4 6"');}
+ s+='<circle cx="340" cy="124" r="38" fill="#ffc400"/><text x="340" y="130" text-anchor="middle" font-size="17" font-weight="800" fill="#14213d">Idea</text>';
+ for(i=0;i<5;i++)s+=P('p',n[i][0],n[i][1]-46,56,cols[i]);
+ s+=TX(110,182,'Producto')+TX(230,126,'Datos')+TX(450,126,'Ventas')+TX(570,182,'Diseño')+TX(376,232,'Clientes','start');
+ return '<svg viewBox="0 0 680 292" role="img" aria-label="Cinco expertos de áreas distintas conectados entre sí alrededor de una idea nueva">'+s+'</svg>';}
+var tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),hb=document.getElementById('hb');
+['s','p','a'].forEach(function(k){
+ var b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.id='t-'+k;b.textContent=T[k].n;b.onclick=function(){show(k)};tabs.appendChild(b);
+ var h=document.createElement('button');h.style.background=T[k].c;h.innerHTML='<b>'+T[k].hb+'</b><span>'+T[k].hs+'</span>';h.onclick=function(){show(k);tabs.scrollIntoView({behavior:'smooth'})};hb.appendChild(h);});
+function show(k){var d=T[k],i;
+ ['s','p','a'].forEach(function(z){document.getElementById('t-'+z).setAttribute('aria-selected',z===k);});
+ tabs.style.setProperty('--c',d.c);panel.style.setProperty('--c',d.c);
+ var h='<span class="kick">'+d.kick+'</span><p class="idea">'+d.idea+'</p><p>'+d.def+'</p><div class="ana"><b>Piénsalo así</b>'+d.ana+'</div>'+scene(k)+'<h3>Paso a paso</h3><ol class="st">';
+ for(i=0;i<d.st.length;i++)h+='<li>'+d.st[i]+'</li>';
+ h+='</ol><h3>Un ejemplo</h3><div class="story">'+d.story+'<br><br><b>¿Cuándo sirve?</b>'+d.why+'</div>';
+ h+='<div class="pc"><div class="ok"><b>Lo bueno</b>'+d.pro+'</div><div class="no"><b>Lo malo</b>'+d.con+'</div></div>';
+ h+='<p class="tech">Nombre técnico de cómo se ponen de acuerdo: <b>'+d.tech+'</b></p>';
+ panel.innerHTML=h;}
+show('s');
+var Q=[
+['Una panadería nueva con 5 empleados. La dueña decide todo y revisa cada turno.','s','Manda una sola persona y da las órdenes directamente.'],
+['Un hospital: cada médico decide cómo tratar a su paciente según lo que estudió.','p','Cada experto ya sabe qué hacer por su formación.'],
+['Una agencia arma un equipo mixto para crear una campaña que nunca hicieron.','a','Es algo nuevo, y un equipo de expertos se ajusta hablando.'],
+['Una universidad donde los profesores tienen mucha libertad en sus clases.','p','Los expertos deciden en su trabajo; la administración solo apoya.'],
+['Una startup de tres socios donde el fundador aprueba cada decisión.','s','Decide una sola persona y hay pocas reglas.'],
+['Un laboratorio que arma grupos distintos cada vez que cambia el proyecto.','a','Los equipos cambian según el proyecto y se coordinan conversando.']];
+var qi=0,sc=0,done=false,quiz=document.getElementById('quiz');
+function ask(){done=false;if(qi>=Q.length){quiz.innerHTML='<p style="font-size:26px;font-weight:800;margin:0 0 6px">'+sc+' de '+Q.length+' correctas</p><p class="fb">'+(sc>=5?'Los tienes muy claros.':'Repasa las tarjetas de arriba y vuelve a intentarlo.')+'</p><button class="nx" id="rs">Reintentar</button>';document.getElementById('rs').onclick=function(){qi=0;sc=0;ask()};return;}
+ var q=Q[qi];quiz.innerHTML='<div class="meta"><span>Pregunta '+(qi+1)+' de '+Q.length+'</span><span>Aciertos: '+sc+'</span></div><p>'+q[0]+'</p><div class="opts" id="o"></div><p class="fb" id="fb"></p>';
+ ['s','p','a'].forEach(function(k){var b=document.createElement('button');b.className='opt';b.textContent=T[k].n;b.onclick=function(){pick(k,b)};document.getElementById('o').appendChild(b);});}
+function pick(k,b){if(done)return;done=true;var q=Q[qi],ok=k===q[1];if(ok)sc++;b.classList.add(ok?'good':'bad');
+ if(!ok){var o=document.getElementById('o').children;['s','p','a'].forEach(function(z,i){if(z===q[1])o[i].classList.add('good')});}
+ document.getElementById('fb').textContent=(ok?'Correcto. ':'No exactamente. ')+q[2];
+ var n=document.createElement('button');n.className='nx';n.textContent=qi===Q.length-1?'Ver resultado':'Siguiente';n.onclick=function(){qi++;ask()};quiz.appendChild(n);}
+ask();
+</script></body></html>
